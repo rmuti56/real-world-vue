@@ -1,5 +1,9 @@
 <template>
-  <div class="icon-wrapper" v-html="svg"></div>
+  <div>
+    <div class="icon-wrapper" v-html="svg"></div>
+    <slot name="title"></slot>
+    <slot name="supfix"></slot>
+  </div>
 </template>
 
 <script>
