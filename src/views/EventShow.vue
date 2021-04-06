@@ -11,27 +11,15 @@
 </template>
 
 <script>
-import axios from "axios";
+import { mapState } from "vuex";
+
 export default {
   props: ["id"],
-  data() {
-    return {
-      event: {},
-      isLoading: true,
-    };
+  computed: {
+    ...mapState(["isLoading", "event"]),
   },
   async created() {
-    try {
-      const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/${this.id}`
-      );
-      this.event = response.data;
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      this.isLoading = false;
-    }
+    this.$store.dispatch("fetchEvent", this.id);
   },
 };
 </script>

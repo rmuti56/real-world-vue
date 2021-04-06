@@ -4,7 +4,7 @@
     :to="{ name: 'event-show', params: { id: event.id } }"
   >
     <div class="event-card -shadow">
-      <span class="eyebrow">@{{ event.username }} on {{ event.email }} </span>
+      <span class="eyebrow">@{{ event.date }} on {{ event.time }} </span>
       <h4 class="title">{{ event.name }}</h4>
     </div>
   </router-link>
